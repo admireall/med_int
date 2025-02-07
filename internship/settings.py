@@ -106,7 +106,15 @@ WSGI_APPLICATION = "internship.wsgi.application"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.parse("postgresql://db_d9sx_user:mua8isy5ZZE6q4eqjsLTRwmv5Rf0kWCU@dpg-cuiv56tumphs73bjgjgg-a.oregon-postgres.render.com/db_d9sx")
+    'default': dj_database_url.config(
+        default="postgresql://db_d9sx_user:mua8isy5ZZE6q4eqjsLTRwmv5Rf0kWCU@dpg-cuiv56tumphs73bjgjgg-a.oregon-postgres.render.com/db_d9sx",
+        conn_max_age=600,
+        conn_health_checks=True,
+        ssl_require=True,
+        options={
+            'sslmode': 'require',
+        }
+    )
 }
 
 #postgresql://db_d9sx_user:mua8isy5ZZE6q4eqjsLTRwmv5Rf0kWCU@dpg-cuiv56tumphs73bjgjgg-a.oregon-postgres.render.com/db_d9sx
