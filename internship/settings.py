@@ -105,16 +105,26 @@ WSGI_APPLICATION = "internship.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+DATABASE_URL = "postgresql://db_d9sx_user:mua8isy5ZZE6q4eqjsLTRwmv5Rf0kWCU@dpg-cuiv56tumphs73bjgjgg-a.oregon-postgres.render.com/db_d9sx"
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default="postgresql://db_d9sx_user:mua8isy5ZZE6q4eqjsLTRwmv5Rf0kWCU@dpg-cuiv56tumphs73bjgjgg-a.oregon-postgres.render.com/db_d9sx",
-        conn_max_age=600,
-        conn_health_checks=True,
-        ssl_require=True
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'db_d9sx',
+        'USER': 'db_d9sx_user',
+        'PASSWORD': 'mua8isy5ZZE6q4eqjsLTRwmv5Rf0kWCU',
+        'HOST': 'dpg-cuiv56tumphs73bjgjgg-a.oregon-postgres.render.com',
+        'PORT': '5432',
+        'OPTIONS': {
+            'sslmode': 'require',
+        }
+    }
 }
 
-#postgresql://db_d9sx_user:mua8isy5ZZE6q4eqjsLTRwmv5Rf0kWCU@dpg-cuiv56tumphs73bjgjgg-a.oregon-postgres.render.com/db_d9sx
+# Override database config with URL if available
+if DATABASE_URL:
+    DATABASES['default'] = dj_database_url.parse(DATABASE_URL, conn_max_age=600)
+    DATABASES['default']['OPTIONS'] = {'sslmode': 'require'}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
