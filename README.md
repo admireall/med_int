@@ -1,6 +1,10 @@
 # Healthcare Management System API
 
 A Django REST API for managing healthcare records, appointments, and patient information.
+Link to access the live website:https://med-int.onrender.com
+First login so that you will be able to make api calls
+loginid:admin
+pass:asdf@1234
 
 ## Features
 
