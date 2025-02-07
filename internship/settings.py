@@ -105,8 +105,7 @@ WSGI_APPLICATION = "internship.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASE_URL = "postgresql://db_d9sx_user:mua8isy5ZZE6q4eqjsLTRwmv5Rf0kWCU@dpg-cuiv56tumphs73bjgjgg-a.oregon-postgres.render.com/db_d9sx"
-
+DATABASE_URL = "postgresql://db_d9sx_user:mua8isy5ZZE6q4eqjsLTRwmv5Rf0kWCU@dpg-cuiv56tumphs73bjgjgg-a/db_d9sx"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
